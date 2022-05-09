@@ -144,7 +144,13 @@ app.get('/missionCommanders', async (req, res) => {
 		}
 	})
 
-	return res.json({message: "Actualizado correctamente"});
+	return res.json({message: "Mission Commander Actualizado correctamente"});
+});
+
+app.delete('/missionCommanders/:id', async (req, res) => {
+	const id = parseInt(req.params.id);
+	await prisma.missionCommander.delete({where: {id: id}});
+	return res.json({message: "Mission Commander eliminado correctamente"});
 });
 
 app.listen(port, () => {
