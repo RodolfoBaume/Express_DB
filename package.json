@@ -1,0 +1,19 @@
+{
+  "name": "express_db",
+  "version": "1.0.0",
+  "description": "App Express DB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RodolfoBaume/Express_DB.git"
+  },
+  "author": "RodolfoBaume",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RodolfoBaume/Express_DB/issues"
+  },
+  "homepage": "https://github.com/RodolfoBaume/Express_DB#readme"
+}
