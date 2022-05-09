@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
   res.json({message: 'alive'});
 });
 
+// CRUD Explorers
 app.get('/explorers', async (req, res) => {
     const allExplorers =  await prisma.explorer.findMany({});
     res.json(allExplorers);
@@ -63,7 +64,7 @@ app.delete('/explorers/:id', async (req, res) => {
 	return res.json({message: "Eliminado correctamente"});
 });
 
-
+// CRUD Missions
 app.get('/missions', async (req, res) => {
     const allMissions =  await prisma.mission.findMany({});
     res.json(allMissions);
@@ -107,6 +108,13 @@ app.delete('/missions/:id', async (req, res) => {
 	await prisma.mission.delete({where: {id: id}});
 	return res.json({message: "Eliminado correctamente"});
 });
+
+// CRUD MissionCommanders
+app.get('/missionCommanders', async (req, res) => {
+    const allmissionCommanders =  await prisma.missionCommander.findMany({});
+    res.json(allmissionCommanders);
+  });
+
 
 app.listen(port, () => {
   console.log(`Listening to requests on port ${port}`);
