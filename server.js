@@ -60,6 +60,13 @@ app.get('/missions', async (req, res) => {
     res.json(allMissions);
   });
 
+  app.get('/missions/:id', async (req, res) => {
+    const id = req.params.id;
+    const mission = await prisma.mission.findUnique({where: {id: parseInt(id)}});
+    res.json(mission);
+  });
+
+
 app.listen(port, () => {
   console.log(`Listening to requests on port ${port}`);
 });
