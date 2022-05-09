@@ -93,6 +93,12 @@ app.get('/missions', async (req, res) => {
 	return res.json({message: "Actualizado correctamente"});
 });
 
+app.delete('/missions/:id', async (req, res) => {
+	const id = parseInt(req.params.id);
+	await prisma.mission.delete({where: {id: id}});
+	return res.json({message: "Eliminado correctamente"});
+});
+
 app.listen(port, () => {
   console.log(`Listening to requests on port ${port}`);
 });
