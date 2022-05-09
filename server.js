@@ -121,6 +121,17 @@ app.get('/missionCommanders', async (req, res) => {
     res.json(missionCommander);
   });
 
+  app.post('/missionCommanders', async (req, res) => {
+    const missionCommander = {
+      name: req.body.name,
+      username: req.body.username,
+      mainStack: req.body.mainStack
+     };
+    const message = 'Mission Commander creado.';
+    await prisma.missionCommander.create({data: missionCommander});
+    return res.json({message});
+  });
+
 app.listen(port, () => {
   console.log(`Listening to requests on port ${port}`);
 });
