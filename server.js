@@ -66,6 +66,18 @@ app.get('/missions', async (req, res) => {
     res.json(mission);
   });
 
+  app.post('/missions', async (req, res) => {
+    const mission = {
+      name: req.body.name,
+      lang: req.body.lang,
+      missionCommander: req.body.missionCommander,
+      enrollments: req.body.enrollments
+     };
+    const message = 'Mision creada.';
+    await prisma.mission.create({data: mission});
+    return res.json({message});
+  });
+
 
 app.listen(port, () => {
   console.log(`Listening to requests on port ${port}`);
