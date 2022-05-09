@@ -78,6 +78,20 @@ app.get('/missions', async (req, res) => {
     return res.json({message});
   });
 
+  app.put('/missions/:id', async (req, res) => {
+	const id = parseInt(req.params.id);
+
+	await prisma.mission.update({
+		where: {
+			id: id
+		},
+		data: {
+			name: req.body.name
+		}
+	})
+
+	return res.json({message: "Actualizado correctamente"});
+});
 
 app.listen(port, () => {
   console.log(`Listening to requests on port ${port}`);
